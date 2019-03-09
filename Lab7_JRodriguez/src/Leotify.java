@@ -68,7 +68,6 @@ public class Leotify extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
         jProgressBar1 = new javax.swing.JProgressBar();
         jButton8 = new javax.swing.JButton();
-        jButton14 = new javax.swing.JButton();
         jDialog1 = new javax.swing.JDialog();
         jScrollPane4 = new javax.swing.JScrollPane();
         jl_play2 = new javax.swing.JList<>();
@@ -307,13 +306,6 @@ public class Leotify extends javax.swing.JFrame {
 
         jButton8.setText(" ll");
 
-        jButton14.setText("limpiar");
-        jButton14.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton14MouseClicked(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -358,9 +350,7 @@ public class Leotify extends javax.swing.JFrame {
                                             .addGroup(jPanel3Layout.createSequentialGroup()
                                                 .addGap(18, 18, 18)
                                                 .addComponent(jButton7)
-                                                .addGap(31, 31, 31)
-                                                .addComponent(jButton14)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addGap(104, 104, 104)
                                                 .addComponent(jLabel14))))))))
                     .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 609, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(108, Short.MAX_VALUE))
@@ -377,10 +367,8 @@ public class Leotify extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel14)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton8)
-                        .addComponent(jButton7)
-                        .addComponent(jButton14)))
+                    .addComponent(jButton8)
+                    .addComponent(jButton7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
@@ -674,6 +662,11 @@ public class Leotify extends javax.swing.JFrame {
                 jButton1MouseClicked(evt);
             }
         });
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setForeground(new java.awt.Color(102, 153, 0));
@@ -750,6 +743,7 @@ public class Leotify extends javax.swing.JFrame {
                 popcancion.show(evt.getComponent(), evt.getX(), evt.getY());
             }
         }
+        jProgressBar1.setValue(0);
     }//GEN-LAST:event_jl_cancionesMouseClicked
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
@@ -765,7 +759,10 @@ public class Leotify extends javax.swing.JFrame {
             for (int j = 0; j < artistas.size(); j++) {
                 if (tf_user.getText().equals(artistas.get(i).getNusuario()) && tf_pass.getText().equals( artistas.get(i).getContraseña())) {
                     posicion = j;
-                    
+                    artista.setModal(true);
+                artista.pack();
+                artista.setLocationRelativeTo(this);
+                artista.setVisible(true);
                 }
                 
             }
@@ -886,9 +883,9 @@ DefaultListModel modelo=(DefaultListModel)jl_canciones1.getModel();
                     modelo.addElement(new Cancion(tf_nombrecancion1.getText(), tf_artistarola1.getText(), Double.parseDouble(tf_duracion1.getText() )));
     }//GEN-LAST:event_jButton13MouseClicked
 
-    private void jButton14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton14MouseClicked
-        jProgressBar1.setValue(0); 
-    }//GEN-LAST:event_jButton14MouseClicked
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -936,7 +933,6 @@ DefaultListModel modelo=(DefaultListModel)jl_canciones1.getModel();
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
